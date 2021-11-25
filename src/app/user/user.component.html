@@ -1,0 +1,26 @@
+    <div class="menu">
+        <section id="centro">
+
+        </section>
+        <section id="contenido">
+            <h2>Registro Usuarios</h2>
+            <div class="campo"><p><i class="fas fa-address-book icon"></i>
+                <input type="text" class="form-control input-lg text-center" placeholder="Cedula" id="cedula" ng-model="formData.cedula"></p></div>
+            <div class="campo"><p><i class="fas fa-user icon"></i>
+                <input type="text" class="form-control input-lg text-center" placeholder="Nombres" id="nombre" ng-model="formData.nombre"></p></div>
+            <div class="campo"><p><i class="fas fa-user icon"></i>
+                <input type="text" class="form-control input-lg text-center" placeholder="Apellidos" id="apellido" ng-model="formData.apellido"></p></div>
+            <div class="campo"><p><i class="fas fa-envelope icon"></i>
+                <input type="text" class="form-control input-lg text-center" placeholder="Correo Electronico" id="correo" ng-model="formData.correo"></p></div>
+            <div class="campo"><p><i class="fas fa-mobile-alt icon"></i>
+                <input type="text" class="form-control input-lg text-center" placeholder="Celular" id="celular" ng-model="formData.celular"></p></div>
+            <h3>Id Usuario</h3>
+            <div class="campo"><p><i class="fas fa-user icon"></i>
+                <input type="text" class="form-control input-lg text-center" placeholder="Usuario" id="user" ng-model="formData.user"></p></div>
+            <div class="campo"><p><i class="fas fa-key icon"></i>
+                <input type="password" class="form-control input-lg text-center" placeholder="Contraseña" id="clave" ng-model="formData.clave"></p></div>
+            <p><button class="button" ng-click="registrarUsuario()">Registrarse</button></p>
+
+            <!--<br> {{msj}}-->
+        </section> 
+    </div>
