@@ -3,23 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule} from '@angular/forms';
 //import { HttpModule} from '@angular/http';
-import { RouterModule, Routes} from '@angular/router';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 import { UbicacionComponent } from './ubicacion/ubicacion.component';
-
-const router: Routes=[{
-  path:'user',
-  component: UserComponent,
-},{
-  path:'inmo',
-  component: InmobiliariaComponent
-},{
-  path:'ubi',
-  component: UbicacionComponent
-}]
+import { ConsultaInmueblesService } from './consulta-inmuebles.service';
 
 @NgModule({
   declarations: [
@@ -30,12 +20,12 @@ const router: Routes=[{
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(router)
     
   ],
-  providers: [],
+  providers: [ConsultaInmueblesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

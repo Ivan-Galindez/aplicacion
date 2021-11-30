@@ -1,0 +1,8 @@
+- Grupo 16 
+- Master Developers
+- 	Roles:
+-	Líder de equipo: Cristian Gómez.
+-	Diseñador de software: Manuela Granada.
+-	Tester: Sebastián Sanabria.
+-	Diseñador UI:, Iván Galíndez. 
+-	Administrador de la configuración:  Juan Camilo.

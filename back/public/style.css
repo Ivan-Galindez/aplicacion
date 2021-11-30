@@ -1,0 +1,148 @@
+body {
+    background-image: url('1d865d79edc15bf002c3934cdc7b41cc.jpg');
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#contenedor {
+    /*float: center;*/
+    width: 100%;
+    margin: 0px auto;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background: none;
+    text-align: center;
+    /*border-bottom: 4px solid black;*/
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+nav {
+    background: none;
+    height: 10%;
+    border-radius: 20px;
+}
+
+nav ul li {
+    color: white;
+    float: left;
+    list-style: none;
+    width: 28%;
+    height: 100%;
+    margin-top: 20px;
+    margin-left: 50px;
+    line-height: 20px;
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+input[type="text"],
+input[type="password"] {
+    font-size: 18px;
+    width: 70%;
+    padding: 7px;
+    border: none;
+}
+h2 {
+    color: #cfb419;
+}
+h3 {
+    color: #cfb419;
+}
+
+.inf input[type="text"] {
+    font-size: 14px;
+    width: 10%;
+    padding: 5px;
+    border: none;
+}
+
+.input-contenedor {
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+}
+
+.icon {
+    min-width: 60px;
+    text-align: center;
+    color: #cfb419;
+}
+
+.menu {
+    height: 82%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenido {
+    width: 25%;
+    background-color: none;
+    min-height: 250px;
+    text-align: center;
+    border: 5px #cfb419 solid;
+    border-radius: 20px;
+    
+    float: right;
+}
+#centro {
+    width: 70%;
+    background-color: none;
+    min-height: 250px;
+    /*min-width: 500px;*/
+    text-align: center;
+    border-radius: 20px;
+    float: left;
+}
+
+.button {
+    border: none;
+    width: 82%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background: #cfb419;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.button:hover {
+    background: #85720b;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer {
+    background: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    /* Vertically center the text there */
+    color: wheat;
+}
+
+.espacio {
+    clear: both;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background: #cfb419;
+}

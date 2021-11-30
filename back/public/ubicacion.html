@@ -1,0 +1,42 @@
+<html ng-app="myApp" id="myApp">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <title>Master Inmobiliaria</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/5d03531c1a.js" crossorigin="anonymous"></script>
+    <script src="./script_proyecto.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body ng-controller="myController">
+    <div id="contenedor">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="http://localhost:900/">Inicio</a></li>
+                    <li><a href="./inmueble.html">Insertar inmueble </a></li>
+                    <li><a href="./ubicacion.html">Insertar ubicacion</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="menu">
+            <section id="centro">
+
+            </section>
+            <section id="contenido">
+                <h2>Registro Ubicación</h2>
+                <p><i class="fas fa-map-marked-alt icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Zona" id="Zona" ng-model="formData.Zona"></p>
+                <p><i class="fas fa-map-marker-alt icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Barrio" id="Barrio" ng-model="formData.Barrio"></p>
+                <p><button class="button" ng-click="RegistrarUbi()">Registrar</button></p>
+
+                <br> {{msj}}
+            </section>
+        </div>
+    </div>
+</body>
+</html>

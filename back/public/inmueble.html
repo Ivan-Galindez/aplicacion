@@ -1,0 +1,56 @@
+<html ng-app="myApp" id="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Master Inmobiliaria</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/5d03531c1a.js" crossorigin="anonymous"></script>
+    <script src="./script_proyecto.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body ng-controller="myController">
+    <div id="contenedor">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="http://localhost:900/">Inicio</a></li>
+                    <li><a href="./inmueble.html">Insertar inmueble </a></li>
+                    <li><a href="./ubicacion.html">Insertar ubicacion</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="menu">
+            <section id="centro">
+
+            </section>
+            <section id="contenido">
+                <h2>Registro Inmueble</h2>
+                <p><i class="fas fa-house-user icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Nombre" id="Nombre" ng-model="formData.Nombre"></p>
+                <p><i class="far fa-question-circle icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Tipo" id="Tipo" ng-model="formData.Tipo"></p>
+                <p><i class="fas fa-map-marked-alt icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Barrio" id="Barrio" ng-model="formData.Barrio"></p>
+                <p><i class="fas fa-money-check icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Transaccion" id="Transaccion" ng-model="formData.Transaccion"></p>
+                <p><i class="fas fa-chart-area icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Area m2" id="Area" ng-model="formData.Area"></p>
+                <p><i class="fas fa-toilet icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="# Baños" id="Banios" ng-model="formData.Banios"></p>
+                <p><i class="fas fa-bed icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="# Habitaciones" id="habitaciones" ng-model="formData.habitaciones"></p>
+                <p><i class="fas fa-funnel-dollar icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Estrato" id="Estrato" ng-model="formData.Estrato"></p>
+                <p><i class="fas fa-money-bill-wave icon"></i>
+                    <input type="text" class="form-control input-lg text-center" placeholder="Precio" id="Precio" ng-model="formData.Precio"></p>
+                <p><button class="button" ng-click="RegistrarInmueble()">Registrar</button></p>
+
+                <br> {{msj}}
+            </section>
+        </div>
+    </div>
+</body>
+</html>
