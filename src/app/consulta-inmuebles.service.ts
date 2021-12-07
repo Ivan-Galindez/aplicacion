@@ -11,10 +11,20 @@ export class ConsultaInmueblesService {
 
   registrarInmueble(inmueble:Data){
     this.http.put("http://localhost:900/registrarInmueble",inmueble).subscribe( data => {
-      console.log("llego al servicio ?#$%");
+      // console.log("llego al servicio ?#$%");
       console.log(data)
     });
   };
+
+  getConsulta(tipo:any){
+    //hace consulta al backend del modelo servicio conectandose por el puerto previamente abierto
+    console.log("llego al servicio ahhh pichulaaaaa ffff");
+    console.log(tipo);
+    this.http.get("http://localhost:900/consultaInmueble?tipo="+tipo).subscribe( data => {
+      console.log(data);
+
+    });
+  }
 
 /*
   getInmueble(){

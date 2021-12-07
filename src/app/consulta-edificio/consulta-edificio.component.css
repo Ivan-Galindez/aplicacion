@@ -1,0 +1,10 @@
+td {
+    border: 3px solid #1883db;
+    width: 100px;
+}
+.men-conte{
+    justify-content:center;
+    align-items:center;
+    margin-top: 50px;
+    display:flex;
+}

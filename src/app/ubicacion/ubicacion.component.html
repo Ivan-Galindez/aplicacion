@@ -8,7 +8,7 @@
             <input type="text" class="form-control input-lg text-center" placeholder="Zona" id="Zona" ng-model="formData.Zona"></p></div>
         <div class="campo"><p><i class="fas fa-map-marker-alt icon"></i>
             <input type="text" class="form-control input-lg text-center" placeholder="Barrio" id="Barrio" ng-model="formData.Barrio"></p></div>
-        <p><button class="button" ng-click="RegistrarUbi()">Registrar</button></p>
+        <p><button class="button" id="submit" name="submit" (click)="registrarUbicacion()">Registrar</button></p>
 
         <!--<br> {{msj}}-->
     </section>

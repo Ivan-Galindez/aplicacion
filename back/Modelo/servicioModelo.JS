@@ -17,54 +17,34 @@ const path = require("path");
 
 require('./conexion_bd') // solicita la conexion a la base de datos en Mongo
 
-app.put("/registrarInmueble", (req,res) => {
-    console.log("llego al final el prrro");
-    const respuesta={
-        nombre: req.body.nombre,
-        tipo: req.body.tipo
-    }
-    modelo.collection.insertOne(respuesta, function(err, res) {
-        if (err) throw err;
+///////inserter imueble
 
-    })
-    res.send(JSON.stringify(respuesta))
-});
+// app.put("/registrarInmueble", (req,res) => {
+//     console.log("llego al final");
+//     const respuesta={
+//         nombre: req.body.nombre,
+//         tipo: req.body.tipo,
+//         barrio:req.body.barrio,
+//         Transaccion:req.body.Transaccion,
+//         Area:req.body.Area,
+//         Banios:req.body.Banios,
+//         habitaciones:req.body.habitaciones,
+//         Estrato:req.body.Estrato,
+//         precio:req.body.precio
+//     }
+//     modeloInmueble.collection.insertOne(respuesta, function(err, res) {
+//         if (err) throw err;
 
-app.post("/upload", (req, res) => {
-    var myobj = { cedula: req.body.cedula,
-                  nombre: req.body.nombre, 
-                  apellido: req.body.apellido,
-                  correo: req.body.correo, 
-                  celular: req.body.celular, 
-                  user: req.body.user, 
-                  clave: req.body.clave };
-    modelo.collection.insertOne(myobj, function(err, res) {
-        if (err) throw err;
+//     })
+//     res.send(JSON.stringify(respuesta))
+// });
 
-    })
-    res.send("upload documento guardado con exito")
-})
+app.put("/registrarInmueble", (req, res) => {
 
-///////insertar ubicacion
-
-app.post("/insertarUbicacion", (req, res) => {
-
-    var myobj = { zona: req.body.Zona, barrio: req.body.Barrio };
-    modeloUbicacion.collection.insertOne(myobj, function(err, res) {
-        if (err) throw err;
-
-    });
-    res.send("ubicacion guardada con exito");
-});
-
-
-
-app.post("/insertarInmueble", (req, res) => {
-
-    modeloUbicacion.find({ barrio: req.body.Barrio }, (err, docs) => {
+    modeloUbicacion.find({ barrio: req.body.barrio }, (err, docs) => {
         var myobj = {
-            nombre: req.body.Nombre,
-            tipo: req.body.Tipo,
+            nombre: req.body.nombre,
+            tipo: req.body.tipo,
             imagen: 'req.body.Imagen  va una imagen',
             ubicacion: docs[0]._id,
             Transaccion: req.body.Transaccion,
@@ -81,20 +61,89 @@ app.post("/insertarInmueble", (req, res) => {
         console.log(docs[0]._id)
     });
 
-    res.send("inmueble documento guardado con exito")
+    res.send(JSON.stringify({respo:"correcto"}));
 
+});
+
+///////insertar ubicacion
+
+app.put("/insertarUbicacion", (req, res) => {
+    console.log("insertando ubicacion");
+    var myobj = { 
+        zona: req.body.zona,
+        barrio: req.body.barrio };
+
+    modeloUbicacion.collection.insertOne(myobj, function(err, res) {
+        if (err) throw err;
+
+    });
+    res.send(JSON.stringify({respo:"correcto"}));
+});
+
+////// Consulta de inmuebles 
+
+app.get("/consultaInmueble", (req, res) => { 
+
+    modeloInmueble.find({ tipo: req.query.tipo }, (err, docs) => {
+        console.log(docs)
+        res.end(JSON.stringify(docs));
+    });
+    console.log("llego al finaleee ");
+});
+
+//CONSULTA DE OBJETOS RELACIONADOS 
+
+// modeloInmueble.find({}, function (err, inmuebles) {
+//     modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
+//         console.log(inmuebles[0].ubicacion.barrio);
+//     })
+// })
+
+app.get("/consultaEdificio", (req, res) => {
+    console.log("eooo waasaaaaaaa")
+    modeloInmueble.find({tipo: req.query.tipo}, function (err, inmuebles) {
+        modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
+            console.log(inmuebles);
+            res.end(JSON.stringify(inmuebles));
+        });
+    });
 });
 
 app.get("/consulta", (req, res) => {
-    console.log("econectado -----S");
-   // res.send("ubicacion guardada con exito");
-   const datos={
-       nombre:"Peter",
-       apellido:"Perea"
-   }
-   res.end(JSON.stringify(datos));
-   console.log(JSON.stringify(datos))
+    modeloInmueble.find({}, function (err, inmuebles) {
+        modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
+            //console.log(inmuebles);
+            res.end(JSON.stringify(inmuebles));
+        });
+    });
 });
+
+
+app.post("/upload", (req, res) => {
+    var myobj = { cedula: req.body.cedula,
+                  nombre: req.body.nombre, 
+                  apellido: req.body.apellido,
+                  correo: req.body.correo, 
+                  celular: req.body.celular, 
+                  user: req.body.user, 
+                  clave: req.body.clave };
+    modelo.collection.insertOne(myobj, function(err, res) {
+        if (err) throw err;
+
+    })
+    res.send("upload documento guardado con exito")
+})
+
+// app.get("/consulta", (req, res) => {
+//     console.log("econectado -----S");
+//    // res.send("ubicacion guardada con exito");
+//    const datos={
+//        nombre:"Peter",
+//        tipo:"Perea"
+//    }
+//    res.end(JSON.stringify(datos));
+//    console.log(JSON.stringify(datos))
+// });
 
 app.get('/', (req, res) => {
     res.writeHead(200, { 'Content-Type': HTML_CONTENT_TYPE })

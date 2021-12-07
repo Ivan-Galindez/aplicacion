@@ -1,6 +1,7 @@
 <div class="menu">
     <section id="centro">
-
+        <p>{{datos}}</p>
+        <button class="button" id="submit2" name="submit2" (click)="getConsulta()">Consulta</button>
     </section>
     <section id="contenido">
         <h2>Registro Inmueble</h2>
@@ -22,8 +23,8 @@
             <input type="text" class="form-control input-lg text-center" placeholder="Estrato" id="Estrato"></p></div>
         <div class="campo"><p><i class="fas fa-money-bill-wave icon"></i>
             <input type="text" class="form-control input-lg text-center" placeholder="Precio" id="Precio"></p></div>
-        <p><button class="button" ng-click="RegistrarInmueble()">Registrar</button></p>
-        <p><button class="button" id="submit" name="submit" (click)="registrarInmueble()">pesea</button></p>
+        
+        <p><button class="button" id="submit" name="submit" (click)="registrarInmueble()">Registrar</button></p>
         <!--<br> {{msj}}-->
     </section>
 </div>

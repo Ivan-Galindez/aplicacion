@@ -4,19 +4,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule} from '@angular/forms';
 //import { HttpModule} from '@angular/http';
 import { HttpClientModule } from "@angular/common/http";
-
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 import { UbicacionComponent } from './ubicacion/ubicacion.component';
 import { ConsultaInmueblesService } from './consulta-inmuebles.service';
+import { ConsultaEdificioComponent } from './consulta-edificio/consulta-edificio.component';
+import { ConsultaEdificioService } from './consulta-edificio.service';
+import { HomeComponent } from './home/home.component';
+import { HomeService} from './home.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     InmobiliariaComponent,
-    UbicacionComponent
+    UbicacionComponent,
+    ConsultaEdificioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import { ConsultaInmueblesService } from './consulta-inmuebles.service';
     FormsModule,
     
   ],
-  providers: [ConsultaInmueblesService],
+  providers: [ConsultaInmueblesService, ConsultaEdificioService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

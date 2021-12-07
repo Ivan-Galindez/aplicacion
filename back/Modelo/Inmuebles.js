@@ -13,10 +13,7 @@ const inmueblescheme = new mongoose.Schema({
         type: String
     },
     ubicacion: {
-        type: ObjectId
-    },
-    Antiguedad: {
-        type: String
+        type: mongoose.Schema.ObjectId, ref:"ubicaciones"
     },
     Transaccion: {
         type: String

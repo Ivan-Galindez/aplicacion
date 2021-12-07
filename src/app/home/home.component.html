@@ -1,0 +1,10 @@
+<div class="campito">
+    <div class="sp" *ngFor="let Edificio of edificio; let i = index">
+        <p>id: {{i+1}}</p>
+        <p>Nombre: {{Edificio.nombre}}</p>
+        <p>Tipo: {{Edificio.tipo}}</p>
+        <p>Zona: {{Edificio.ubicacion.zona}}</p>
+        <p>Barrio: {{Edificio.ubicacion.barrio}}</p>
+
+    </div>
+</div>

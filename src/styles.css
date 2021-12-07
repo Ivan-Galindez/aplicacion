@@ -36,7 +36,6 @@ h3 {
     background-color:white;
     float:center;
     margin-left: 10%;
-   
     max-width: 80%;
     height: auto;
 }
@@ -48,9 +47,10 @@ h3 {
 }
 
 .menu {
-    margin-top: 50px;
+    margin-top: 100px;
     height: 82%;
     width: 100%;
+    /* background-color: blue; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,7 +63,6 @@ h3 {
     text-align: center;
     border: 5px #cfb419 solid;
     border-radius: 20px;
-
     float: right;
 }
 #centro {

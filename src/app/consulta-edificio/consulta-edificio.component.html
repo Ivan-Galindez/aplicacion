@@ -1,0 +1,28 @@
+<p>consulta-edificio works!</p>
+<div class="men-conte">
+    <div class="men">
+    <table>
+        <!-- <caption>Resultado de la consulta de edificios</caption> -->
+        <tr style="width: 1000px">
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Tipo</td>
+            <td>Zona</td>
+            <td>barrio</td>
+        </tr>
+    </table>
+
+        <div *ngFor="let Edificio of edificio; let i = index">
+            <table>
+            <tr>
+                <td>{{i+1}}</td>
+                <td>{{Edificio.nombre}}</td>
+                <td>{{Edificio.tipo}}</td>
+                <td>{{Edificio.ubicacion.zona}}</td>
+                <td>{{Edificio.ubicacion.barrio}}</td>
+            </tr>
+        </table>
+    <!-- <p><img src="{{Edificio.imagen}}" alt=""></p> -->
+        </div>
+    </div>
+</div>
