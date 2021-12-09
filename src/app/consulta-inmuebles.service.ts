@@ -10,10 +10,7 @@ export class ConsultaInmueblesService {
   constructor(private http: HttpClient) { }
 
   registrarInmueble(inmueble:Data){
-    this.http.put("http://localhost:900/registrarInmueble",inmueble).subscribe( data => {
-      // console.log("llego al servicio ?#$%");
-      console.log(data)
-    });
+    return this.http.put("http://localhost:900/registrarInmueble",inmueble)
   };
 
   getConsulta(tipo:any){

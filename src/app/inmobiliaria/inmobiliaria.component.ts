@@ -7,7 +7,7 @@ import { ConsultaInmueblesService } from '../consulta-inmuebles.service';
   styleUrls: ['./inmobiliaria.component.css']
 })
 export class InmobiliariaComponent implements OnInit {
-datos="chupame este penco";
+datos:any;
   constructor(private service: ConsultaInmueblesService) { }
 
   ngOnInit(): void {
@@ -36,7 +36,10 @@ datos="chupame este penco";
       Estrato:estrato,
       precio:precio
     }
-    this.service.registrarInmueble(inmueble);
+    this.service.registrarInmueble(inmueble).subscribe( data => {
+      this.datos=data;
+    });
+
     alert("registrando inmueble");
     (document.getElementById("Nombre") as HTMLInputElement).value="";
     (document.getElementById("Tipo") as HTMLInputElement).value="";

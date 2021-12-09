@@ -1,0 +1,39 @@
+.campo-c{
+    width:60%;
+    align-items:center;
+}
+
+select{
+    font-size: 18px;
+    width: 20%;
+    background-color: #1976d2;
+    color: white;
+    padding: 6.7px;
+    border: none;
+    border: 3px #0e5dac solid;
+}
+
+.campo-c input[type="text"] {
+    border: 3px #cfb419 solid;
+    width: 55%;
+}
+
+.btn{
+    font-size: 18px;
+    width: 20%;
+    background-color: #1976d2;
+    color: white;
+    padding: 6.7px;
+    border: none;
+    border: 3px #0e5dac solid;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0ba1e7;
+}
+
+td {
+    border: 3px solid #1883db;
+    width: 100px;
+}

@@ -8,6 +8,8 @@ import { UbicacionService } from '../ubicacion.service';
 })
 export class UbicacionComponent implements OnInit {
 
+  respu:any;
+
   constructor(private service: UbicacionService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,10 @@ export class UbicacionComponent implements OnInit {
       zona:zona,
       barrio: barrio
     }
-    this.service.registrarUbicacion(ubicacion);
+
+    this.service.registrarUbicacion(ubicacion).subscribe( data => {
+      this.respu=data;
+    })
     alert("registrando ubicacion");
     (document.getElementById("Zona") as HTMLInputElement).value="";
     (document.getElementById("Barrio") as HTMLInputElement).value="";

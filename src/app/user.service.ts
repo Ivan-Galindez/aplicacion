@@ -5,11 +5,15 @@ import { Data } from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
-export class UbicacionService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  registrarUbicacion(ubicacion:Data){
-    return this.http.put("http://localhost:900/insertarUbicacion",ubicacion)
+  registrarUsu(usuario:Data){
+    return this.http.put("http://localhost:900/insertarUsu",usuario);
   };
+
+  getConsulta(tip:any, val:any){
+    return this.http.get("http://localhost:900/consulta"+tip+"?val="+val)
+  }
 }

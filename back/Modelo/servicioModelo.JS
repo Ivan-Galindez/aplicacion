@@ -80,6 +80,28 @@ app.put("/insertarUbicacion", (req, res) => {
     res.send(JSON.stringify({respo:"correcto"}));
 });
 
+//////////ingresar usuario
+
+app.put("/insertarUsu", (req, res) => {
+    console.log("insertando usuario");
+    var usuario = { 
+        cedula: req.body.cedula,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        correo: req.body.correo,
+        celular: req.body.celular,
+        user: req.body.user,
+        clave: req.body.clave
+
+    };
+
+    modelo.collection.insertOne(usuario, function(err, res) {
+        if (err) throw err;
+
+    });
+    res.send(JSON.stringify({respo:"correcto"}));
+});
+
 ////// Consulta de inmuebles 
 
 app.get("/consultaInmueble", (req, res) => { 
@@ -109,12 +131,38 @@ app.get("/consultaEdificio", (req, res) => {
     });
 });
 
+/////////////consulta disponibles
+
 app.get("/consulta", (req, res) => {
     modeloInmueble.find({}, function (err, inmuebles) {
         modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
             //console.log(inmuebles);
             res.end(JSON.stringify(inmuebles));
         });
+    });
+});
+
+///////////////Consulta personalizada
+
+app.get("/consultanombre", (req, res) => {
+    console.log("en consulta");
+    modelo.find({ nombre: req.query.val }, (err, docs) => {
+        console.log(docs)
+        res.end(JSON.stringify(docs));
+    });
+});
+app.get("/consultaapellido", (req, res) => {
+    console.log("en consulta de apellido");
+    modelo.find({ apellido: req.query.val }, (err, docs) => {
+        console.log(docs)
+        res.end(JSON.stringify(docs));
+    });
+});
+app.get("/consultacedula", (req, res) => {
+    console.log("en consulta de cedula");
+    modelo.find({ cedula: req.query.val }, (err, docs) => {
+        console.log(docs)
+        res.end(JSON.stringify(docs));
     });
 });
 
