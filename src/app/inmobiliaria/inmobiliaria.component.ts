@@ -7,7 +7,10 @@ import { ConsultaInmueblesService } from '../consulta-inmuebles.service';
   styleUrls: ['./inmobiliaria.component.css']
 })
 export class InmobiliariaComponent implements OnInit {
-datos:any;
+
+  datos:any;
+  archivos:any;
+
   constructor(private service: ConsultaInmueblesService) { }
 
   ngOnInit(): void {
@@ -58,6 +61,19 @@ datos:any;
     let tipo = (document.getElementById("Tipo") as HTMLInputElement).value
     //se llama al servicio
     this.service.getConsulta(tipo);
+  }
+
+  setFile(event: any){
+    this.archivos=event.srcElement.files
+    alert(this.archivos[0].name)
+  }
+
+  guardarImagen(){
+    let formData=new FormData()
+    formData.append("files", this.archivos[0]);
+    this.service.guardarImagen(formData).subscribe (data => {
+
+    })
   }
 
 }

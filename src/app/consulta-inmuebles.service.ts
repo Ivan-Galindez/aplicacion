@@ -23,6 +23,12 @@ export class ConsultaInmueblesService {
     });
   }
 
+  guardarImagen(formData:any){
+    let headers=new HttpHeaders();
+    headers.set('enctype', 'multipart/form-data')
+    return this.http.post("http://localhost:900/guardarImagen", formData, {headers:headers})
+  }
+
 /*
   getInmueble(){
     //funcion con la que se va a conectar con el api

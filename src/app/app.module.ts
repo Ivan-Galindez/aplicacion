@@ -6,6 +6,7 @@ import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+import { UserService } from './user.service'
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 import { UbicacionComponent } from './ubicacion/ubicacion.component';
 import { ConsultaInmueblesService } from './consulta-inmuebles.service';
@@ -30,7 +31,7 @@ import { HomeService} from './home.service'
     FormsModule,
     
   ],
-  providers: [ConsultaInmueblesService, ConsultaEdificioService, HomeService],
+  providers: [ConsultaInmueblesService, ConsultaEdificioService, HomeService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

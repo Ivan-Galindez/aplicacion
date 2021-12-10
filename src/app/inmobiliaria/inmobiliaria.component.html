@@ -26,5 +26,8 @@
         
         <p><button class="button" id="submit" name="submit" (click)="registrarInmueble()">Registrar</button></p>
         <!--<br> {{msj}}-->
+        <div class="campo"><p><i class="fas fa-money-bill-wave icon"></i>
+            <input type="file" class="form-control input-lg text-center" id="files" (change)="setFile($event)"></p></div>
+        <p><button class="button" id="imgsub" name="imgsub" (click)="guardarImagen()">Guardar Imagen</button></p>
     </section>
 </div>

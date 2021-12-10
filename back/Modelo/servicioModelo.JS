@@ -1,19 +1,26 @@
 const express = require("express");
 const { createReadStream } = require('fs')
+var cors = require('cors');
+const multer = require('multer')
+
 var modelo = require('./usuarios')
 var modeloUbicacion = require('./ubicacion');
 var modeloInmueble = require('./Inmuebles');
-var cors = require('cors');
 
 const app = new express();
 const HTML_CONTENT_TYPE = 'text/html'
 const bodyParser = require("body-parser");
+
+let fs=require("fs")
+
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static("public")); // direccion de los archivos a los cuales 
-
 const path = require("path");
+app.use(express.static("./public")); // direccion de los archivos a los cuales 
+let objMulter = multer({ dest: "./public"})
+
+app.use(objMulter.any());
 
 require('./conexion_bd') // solicita la conexion a la base de datos en Mongo
 
@@ -166,6 +173,21 @@ app.get("/consultacedula", (req, res) => {
     });
 });
 
+////////////////Guardar imagen
+
+app.post("/guardarImagen", (req, res) => {
+    // let archivo = req.files[0].originalname;
+    // let oldname = req.files[0].path;
+    // let newName = req.files[0].path + path.parse(req.files[0].originalname).ext;
+    // fs.renameSync(oldname, newName);
+
+    // const dir="http://localhost:900/"+req.files[0].filename+path.parse(req.files[0].originalname).ext;
+
+    // console.log(req.files[0].filename);
+    console.log(req.files[0].originalname);
+})
+
+
 
 app.post("/upload", (req, res) => {
     var myobj = { cedula: req.body.cedula,
@@ -181,17 +203,6 @@ app.post("/upload", (req, res) => {
     })
     res.send("upload documento guardado con exito")
 })
-
-// app.get("/consulta", (req, res) => {
-//     console.log("econectado -----S");
-//    // res.send("ubicacion guardada con exito");
-//    const datos={
-//        nombre:"Peter",
-//        tipo:"Perea"
-//    }
-//    res.end(JSON.stringify(datos));
-//    console.log(JSON.stringify(datos))
-// });
 
 app.get('/', (req, res) => {
     res.writeHead(200, { 'Content-Type': HTML_CONTENT_TYPE })
