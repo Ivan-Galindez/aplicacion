@@ -1,5 +1,6 @@
 <div class="campito">
     <div class="sp" *ngFor="let Edificio of edificio; let i = index">
+        <img src={{Edificio.imagen}} alt="imagen Inmueble" height="220px" width="220px">
         <p>id: {{i+1}}</p>
         <p>Nombre: {{Edificio.nombre}}</p>
         <p>Tipo: {{Edificio.tipo}}</p>

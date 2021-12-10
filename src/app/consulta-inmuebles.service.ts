@@ -9,8 +9,10 @@ export class ConsultaInmueblesService {
 
   constructor(private http: HttpClient) { }
 
-  registrarInmueble(inmueble:Data){
-    return this.http.put("http://localhost:900/registrarInmueble",inmueble)
+  registrarInmueble(formData:any){
+    let headers=new HttpHeaders();
+    headers.set('enctype', 'multipart/form-data')
+    return this.http.put("http://localhost:900/registrarInmueble",formData, {headers:headers})
   };
 
   getConsulta(tipo:any){

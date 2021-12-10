@@ -28,18 +28,19 @@ export class InmobiliariaComponent implements OnInit {
     let estrato = (document.getElementById("Estrato") as HTMLInputElement).value
     let precio = (document.getElementById("Precio") as HTMLInputElement).value
 
-    var inmueble={
-      nombre:nombre,
-      tipo:tipo,
-      barrio: barrio,
-      Transaccion:trans,
-      Area:area,
-      Banios:banios,
-      habitaciones:hab,
-      Estrato:estrato,
-      precio:precio
-    }
-    this.service.registrarInmueble(inmueble).subscribe( data => {
+    let formData=new FormData()
+      formData.append('nombre',nombre)
+      formData.append('tipo',tipo)
+      formData.append('barrio', barrio)
+      formData.append('Transaccion',trans)
+      formData.append('Area',area)
+      formData.append('Banios',banios)
+      formData.append('habitaciones',hab)
+      formData.append('Estrato',estrato)
+      formData.append('precio',precio)
+      formData.append("files", this.archivos[0]);
+    
+    this.service.registrarInmueble(formData).subscribe( data => {
       this.datos=data;
     });
 

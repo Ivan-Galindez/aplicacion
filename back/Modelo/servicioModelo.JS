@@ -47,12 +47,19 @@ require('./conexion_bd') // solicita la conexion a la base de datos en Mongo
 // });
 
 app.put("/registrarInmueble", (req, res) => {
+    
+    let oldname = req.files[0].path;
+    let newName = req.files[0].path + path.parse(req.files[0].originalname).ext;
+    fs.renameSync(oldname, newName);
+
+    const dir="http://localhost:900/"+req.files[0].filename+path.parse(req.files[0].originalname).ext;
+    console.log(dir);
 
     modeloUbicacion.find({ barrio: req.body.barrio }, (err, docs) => {
         var myobj = {
             nombre: req.body.nombre,
             tipo: req.body.tipo,
-            imagen: 'req.body.Imagen  va una imagen',
+            imagen: dir,
             ubicacion: docs[0]._id,
             Transaccion: req.body.Transaccion,
             Area: req.body.Area,
@@ -60,7 +67,7 @@ app.put("/registrarInmueble", (req, res) => {
             habitaciones: req.body.habitaciones,
             Estrato: req.body.Estrato,
             Precio: req.body.Precio,
-            Descripcion: 'req.body.Descripcion va la descrip.'
+            Descripcion: 'va la descrip.'
         };
         modeloInmueble.collection.insertOne(myobj, function(err, res) {
             if (err) throw err;
@@ -71,6 +78,20 @@ app.put("/registrarInmueble", (req, res) => {
     res.send(JSON.stringify({respo:"correcto"}));
 
 });
+
+////////////////Guardar imagen
+
+app.post("/guardarImagen", (req, res) => {
+    let archivo = req.files[0].originalname;
+    let oldname = req.files[0].path;
+    let newName = req.files[0].path + path.parse(req.files[0].originalname).ext;
+    fs.renameSync(oldname, newName);
+
+    const dir="http://localhost:900/"+req.files[0].filename+path.parse(req.files[0].originalname).ext;
+
+    console.log(dir);
+    // console.log(req.files[0].originalname);
+})
 
 ///////insertar ubicacion
 
@@ -172,22 +193,6 @@ app.get("/consultacedula", (req, res) => {
         res.end(JSON.stringify(docs));
     });
 });
-
-////////////////Guardar imagen
-
-app.post("/guardarImagen", (req, res) => {
-    // let archivo = req.files[0].originalname;
-    // let oldname = req.files[0].path;
-    // let newName = req.files[0].path + path.parse(req.files[0].originalname).ext;
-    // fs.renameSync(oldname, newName);
-
-    // const dir="http://localhost:900/"+req.files[0].filename+path.parse(req.files[0].originalname).ext;
-
-    // console.log(req.files[0].filename);
-    console.log(req.files[0].originalname);
-})
-
-
 
 app.post("/upload", (req, res) => {
     var myobj = { cedula: req.body.cedula,
