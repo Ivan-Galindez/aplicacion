@@ -82,7 +82,6 @@ app.put("/registrarInmueble", (req, res) => {
 ////////////////Guardar imagen
 
 app.post("/guardarImagen", (req, res) => {
-    let archivo = req.files[0].originalname;
     let oldname = req.files[0].path;
     let newName = req.files[0].path + path.parse(req.files[0].originalname).ext;
     fs.renameSync(oldname, newName);
@@ -138,7 +137,7 @@ app.get("/consultaInmueble", (req, res) => {
         console.log(docs)
         res.end(JSON.stringify(docs));
     });
-    console.log("llego al finaleee ");
+    //console.log("llego al finaleee ");
 });
 
 //CONSULTA DE OBJETOS RELACIONADOS 
@@ -150,10 +149,10 @@ app.get("/consultaInmueble", (req, res) => {
 // })
 
 app.get("/consultaEdificio", (req, res) => {
-    console.log("eooo waasaaaaaaa")
+    //console.log("eooo waasaaaaaaa")
     modeloInmueble.find({tipo: req.query.tipo}, function (err, inmuebles) {
         modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
-            console.log(inmuebles);
+            //console.log(inmuebles);
             res.end(JSON.stringify(inmuebles));
         });
     });
@@ -175,21 +174,21 @@ app.get("/consulta", (req, res) => {
 app.get("/consultanombre", (req, res) => {
     console.log("en consulta");
     modelo.find({ nombre: req.query.val }, (err, docs) => {
-        console.log(docs)
+        //console.log(docs)
         res.end(JSON.stringify(docs));
     });
 });
 app.get("/consultaapellido", (req, res) => {
     console.log("en consulta de apellido");
     modelo.find({ apellido: req.query.val }, (err, docs) => {
-        console.log(docs)
+        //console.log(docs)
         res.end(JSON.stringify(docs));
     });
 });
 app.get("/consultacedula", (req, res) => {
     console.log("en consulta de cedula");
     modelo.find({ cedula: req.query.val }, (err, docs) => {
-        console.log(docs)
+        //console.log(docs)
         res.end(JSON.stringify(docs));
     });
 });

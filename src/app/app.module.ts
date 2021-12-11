@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule} from '@angular/forms';
-//import { HttpModule} from '@angular/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -29,7 +29,7 @@ import { HomeService} from './home.service'
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    
+    FlexLayoutModule
   ],
   providers: [ConsultaInmueblesService, ConsultaEdificioService, HomeService, UserService],
   bootstrap: [AppComponent]

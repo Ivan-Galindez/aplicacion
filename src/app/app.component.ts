@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ConsultaInmueblesService } from './consulta-inmuebles.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,8 @@ import { ConsultaInmueblesService } from './consulta-inmuebles.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'aplicacion';
-  items: any
+  title = ' Inicio';
 
-  constructor(private service: ConsultaInmueblesService){ }
+  constructor(){ }
+
 }
