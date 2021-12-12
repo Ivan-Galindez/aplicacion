@@ -1,4 +1,4 @@
-<div class="campito">
+<!-- <div class="campito">
     <div class="sp" *ngFor="let Edificio of edificio; let i = index">
         <img src={{Edificio.imagen}} alt="imagen Inmueble" height="220px" width="220px">
         <p>id: {{i+1}}</p>
@@ -6,6 +6,21 @@
         <p>Tipo: {{Edificio.tipo}}</p>
         <p>Zona: {{Edificio.ubicacion.zona}}</p>
         <p>Barrio: {{Edificio.ubicacion.barrio}}</p>
-
+    </div>
+</div> -->
+<br>
+<div class="container">
+    <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let Edificio of edificio; let i = index">
+            <div class="card">
+                    <img src="{{Edificio.imagen}}" class="card-img-top" alt="imagen Inmueble" style="height:300px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{Edificio.nombre}}</h5>
+                    <p class="card-text">Tipo: {{Edificio.tipo}}</p>
+                    <p class="card-text">Zona: {{Edificio.ubicacion.zona}}</p>
+                    <p class="card-text">Barrio: {{Edificio.ubicacion.barrio}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

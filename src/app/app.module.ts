@@ -13,7 +13,8 @@ import { ConsultaInmueblesService } from './consulta-inmuebles.service';
 import { ConsultaEdificioComponent } from './consulta-edificio/consulta-edificio.component';
 import { ConsultaEdificioService } from './consulta-edificio.service';
 import { HomeComponent } from './home/home.component';
-import { HomeService} from './home.service'
+import { HomeService} from './home.service';
+import { InicarSesionComponent } from './inicar-sesion/inicar-sesion.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeService} from './home.service'
     InmobiliariaComponent,
     UbicacionComponent,
     ConsultaEdificioComponent,
-    HomeComponent
+    HomeComponent,
+    InicarSesionComponent
   ],
   imports: [
     BrowserModule,
