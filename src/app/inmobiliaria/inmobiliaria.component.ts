@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConsultaInmueblesService } from '../consulta-inmuebles.service';
 
 @Component({
@@ -12,10 +13,14 @@ export class InmobiliariaComponent implements OnInit {
   archivos:any;
   barrios:any
 
-  constructor(private service: ConsultaInmueblesService) { }
+  constructor(private service: ConsultaInmueblesService, private route: Router) { }
 
   ngOnInit(): void {
     //alert("madres estamos en inmuebles");
+    if(localStorage.getItem("isLogin") == null){
+      this.route.navigate([""]);
+    }
+
     this.service.getConsultaBarrio().subscribe( data=>{
       this.barrios=data;
       console.log(this.barrios)      

@@ -166,6 +166,22 @@ app.get("/consultaInmu", (req, res) => {
 //     })
 // })
 
+///////////// login . iniciar sesion
+
+app.post("/login", (req, res) => {
+    console.log(req.body);
+    var usuario = {
+        user: req.body.user,
+        clave: req.body.clave
+    };
+    modelo.find(usuario, function(err, res1) {
+        // if (err) throw err;
+        console.log(res);
+        res.end(JSON.stringify({ respuesta: res1.length > 0 }));
+    });
+});
+
+////////consulta edificio
 
 app.get("/consultaEdificio", (req, res) => {
     //console.log("eooo waasaaaaaaa")

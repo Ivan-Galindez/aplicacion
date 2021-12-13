@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService} from '../user.service'
 
 @Component({
@@ -10,9 +11,12 @@ export class UserComponent implements OnInit {
   
   respuestaRegistro:any;
   
-  constructor(private service: UserService) { }
+  constructor(private service: UserService, private route: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("isLogin") == null){
+      this.route.navigate(["/home"]);
+    }
   }
 
   registrarUsu(){

@@ -48,7 +48,7 @@
     
         <h5><li class="nav-item dropdown" *ngIf="isLogin=='true'">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Insertar
+            Registrar
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/user">Usuario</a>
@@ -59,13 +59,14 @@
       </ul>
       <ul class="navbar-nav ms-4"> 
         <h5><li class="nav-item">
-        <a class="nav-link text-nowrap" href="/sign-in">Iniciar sesión</a>
+        <a class="nav-link text-nowrap" href="/sign-in" *ngIf="isLogin=='false'">Iniciar sesión</a>
         </li></h5>
-        <li class="nav-item">
-          <a (click)="logout()" *ngIf="isLogin=='true'">
-            <img class="logout">
+
+        <h5 style="font-weight: lighter; cursor: pointer;"><li class="nav-item">
+          <a class="nav-link text-nowrap" (click)="logout()" *ngIf="isLogin=='true'">
+            <i>Cerrar sesión</i>
         </a>
-        </li>
+        </li></h5>
       </ul>
     </div>
   </nav>

@@ -16,8 +16,11 @@ export class InicarSesionComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogin = localStorage.getItem("isLogin") || "false";
+    if(localStorage.getItem("isLogin") !== null){
+      this.router.navigate([""]);
+    }
   }
-  
+
   login() {
     let tip = (document.getElementById("usuario") as HTMLInputElement).value;
     let val = (document.getElementById("contrasena") as HTMLInputElement).value;

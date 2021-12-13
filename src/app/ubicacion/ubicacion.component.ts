@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UbicacionService } from '../ubicacion.service';
 
 @Component({
@@ -10,9 +11,12 @@ export class UbicacionComponent implements OnInit {
 
   respu:any;
 
-  constructor(private service: UbicacionService) { }
+  constructor(private service: UbicacionService, private route: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("isLogin") == null){
+      this.route.navigate([""]);
+    }
   }
   registrarUbicacion(){
     let zona = (document.getElementById("Zona") as HTMLInputElement).value
