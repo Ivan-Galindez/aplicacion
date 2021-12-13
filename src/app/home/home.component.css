@@ -26,3 +26,9 @@
     display:flex;
     flex-wrap: wrap;
 }
+.spa{
+    min-width:250px;
+}
+.sap{
+    min-width: 20px;
+}

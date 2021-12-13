@@ -8,17 +8,101 @@
         <p>Barrio: {{Edificio.ubicacion.barrio}}</p>
     </div>
 </div> -->
-<br>
-<div class="container">
+<!-- <br> -->
+<!-- <div class="container">
     <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4" *ngFor="let Edificio of edificio; let i = index">
-            <div class="card">
+            <div class="card text-dark bg-light">
                     <img src="{{Edificio.imagen}}" class="card-img-top" alt="imagen Inmueble" style="height:300px;">
                 <div class="card-body">
                     <h5 class="card-title">{{Edificio.nombre}}</h5>
                     <p class="card-text">Tipo: {{Edificio.tipo}}</p>
                     <p class="card-text">Zona: {{Edificio.ubicacion.zona}}</p>
                     <p class="card-text">Barrio: {{Edificio.ubicacion.barrio}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- Manu -->
+<nav class="navbar navbar-expand-md bg-light navbar-light border-5 border-bottom border-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h2><i class="fas fa-filter"></i>Filtrar</h2></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuNav" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div id="MenuNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-4">
+            <li class="nav-item spa">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Tipo</span>
+                    <select class="form-select" name="select" id="consulTipo">
+                        <option value="selec" selected>Seleccionar</option>
+                        <option value="casa">Casa</option>
+                        <option value="apto">Apartamento</option>
+                        <option value="apartaestudio">ApartaEstudio</option>
+                        <option value="oficina">Oficina</option>
+                        <option value="lote">Lote</option>
+                        <option value="edificio">Edificio</option>
+                    </select>
+                </div>
+            </li>
+            <li class="sap"></li>
+            <li class="nav-item spa">
+                <div class="input-group mb-4">
+                    <span class="input-group-text" id="basic-addon1">Transactions</span>
+                    <select class="form-select" name="select" id="consulTransaccion">
+                        <option value="selec" selected>Seleccionar</option>
+                        <option value="Arriendo">Arriendo</option>
+                        <option value="Venta">Venta</option>
+                    </select>
+                </div>
+            </li>
+            <li class="sap"></li>
+            <li class="nav-item spa">
+                <label for="customRange2" class="form-label" style="font-size: 16px;">Cantidad de habitaciones <span style="color:rgb(9, 121, 248); font-size: 16px; font-weight: bold;">{{val}}</span></label>
+                <input type="range" class="form-range" min="1" max="5" id="consulHabitaciones" (change)="cambi()">
+            </li>
+            <li class="sap"></li>
+            <li class="nav-item spa">
+                <div class="input-group mb-4 com">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marked-alt icon"></i></span>
+                    <select class="form-select" id="consulbarrio">
+                        <option selected><i> Barrios</i></option>
+                        <option *ngFor="let Barrio of barrios" value={{Barrio.barrio}}>{{Barrio.barrio}}</option>
+                    </select>
+                </div>
+            </li>
+            <li class="sap"></li>
+            <li class="nav-item">
+                <button class="btn btn-primary" id="submitCon" (click)="consultaInmueble()">Consultar</button>
+            </li>
+            <li class="sap"></li>
+        </ul>
+    </div>
+    
+</nav>
+
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+<br>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let res of disponible; let i = index">
+            <div class="card">
+                <img [src]="res.imagen" class="card-img-top" alt="..." height="250px">
+                <div class="card-body">
+                    <h5 class="card-title"> {{res.nombre}}</h5>
+                    <p class="card-text">Tipo: {{res.tipo}}</p>
+                    <p class="card-text">Zona: {{res.ubicacion.zona}}</p>
+                    <p class="card-text">Barrio: {{res.ubicacion.barrio}}</p>
+                    <p class="card-text">Transacción: {{res.Transaccion}}</p>
+                    <p class="card-text">Área: {{res.Area}}</p>
+                    <p class="card-text">Baños: {{res.Banios}}</p>
+                    <p class="card-text">Habitaciones: {{res.habitaciones}}</p>
+                    <p class="card-text">Estrato: {{res.Estrato}}</p>
+                    <p class="card-text">Precio: {{res.Precio}}</p>
                 </div>
             </div>
         </div>

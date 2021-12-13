@@ -13,9 +13,7 @@ input[type="password"] {
     padding: 7px;
     border: none;
 }
-h2 {
-    color: white;
-}
+
 h3 {
     color: #cfb419;
 }
@@ -33,17 +31,18 @@ h3 {
 }
 
 .campo{
-    background-color:white;
-    float:center;
+    background-color:rgb(192, 31, 31);
+    
     margin-left: 10%;
     max-width: 80%;
     height: auto;
 }
 
 .icon {
-    min-width: 60px;
+    min-width: 40px;
     text-align: center;
-    color: #1976d2 ;
+    color: #0c0f13ca ;
+    
 }
 
 .menu {

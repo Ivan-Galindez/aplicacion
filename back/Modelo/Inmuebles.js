@@ -25,7 +25,7 @@ const inmueblescheme = new mongoose.Schema({
         type: Number
     },
     habitaciones: {
-        type: Number
+        type: String
     },
     Estrato: {
         type: Number

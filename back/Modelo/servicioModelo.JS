@@ -140,6 +140,24 @@ app.get("/consultaInmueble", (req, res) => {
     //console.log("llego al finaleee ");
 });
 
+///////////////   Consulta personalizada inmuebles
+app.get("/consultaInmu", (req, res) => {
+    console.log(req.query);
+    var myobj = {
+        tipo: req.query.tipo,
+        Transaccion: req.query.transaccion,
+        habitaciones: req.query.habitaciones,
+        barrio: req.query.barrio
+    };
+    modeloInmueble.find({tipo: req.query.tipo,Transaccion: req.query.transaccion, habitaciones: req.query.habitaciones},  function(err, inmuebles) {
+        modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function(err, inmuebles) {
+            console.log(inmuebles);
+            res.end(JSON.stringify(inmuebles));
+        });
+    });
+});
+
+
 //CONSULTA DE OBJETOS RELACIONADOS 
 
 // modeloInmueble.find({}, function (err, inmuebles) {
@@ -147,6 +165,7 @@ app.get("/consultaInmueble", (req, res) => {
 //         console.log(inmuebles[0].ubicacion.barrio);
 //     })
 // })
+
 
 app.get("/consultaEdificio", (req, res) => {
     //console.log("eooo waasaaaaaaa")
@@ -163,29 +182,37 @@ app.get("/consultaEdificio", (req, res) => {
 app.get("/consulta", (req, res) => {
     modeloInmueble.find({}, function (err, inmuebles) {
         modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
-            //console.log(inmuebles);
+            console.log("en consulta");
             res.end(JSON.stringify(inmuebles));
         });
     });
 });
 
+//////////////Consulta Barrios
+app.get("/consultaBarrio", (req, res) => {
+    modeloUbicacion.find({}, function (err, barrios) {
+        console.log("en consulta barrios");
+        res.end(JSON.stringify(barrios));
+    });
+});
+
 ///////////////Consulta personalizada
 
-app.get("/consultanombre", (req, res) => {
+app.get("/consultaNombre", (req, res) => {
     console.log("en consulta");
     modelo.find({ nombre: req.query.val }, (err, docs) => {
         //console.log(docs)
         res.end(JSON.stringify(docs));
     });
 });
-app.get("/consultaapellido", (req, res) => {
+app.get("/consultaApellido", (req, res) => {
     console.log("en consulta de apellido");
     modelo.find({ apellido: req.query.val }, (err, docs) => {
         //console.log(docs)
         res.end(JSON.stringify(docs));
     });
 });
-app.get("/consultacedula", (req, res) => {
+app.get("/consultaCedula", (req, res) => {
     console.log("en consulta de cedula");
     modelo.find({ cedula: req.query.val }, (err, docs) => {
         //console.log(docs)

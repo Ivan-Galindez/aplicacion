@@ -14,7 +14,8 @@ import { ConsultaEdificioComponent } from './consulta-edificio/consulta-edificio
 import { ConsultaEdificioService } from './consulta-edificio.service';
 import { HomeComponent } from './home/home.component';
 import { HomeService} from './home.service';
-import { InicarSesionComponent } from './inicar-sesion/inicar-sesion.component'
+import { InicarSesionComponent } from './inicar-sesion/inicar-sesion.component';
+import { ConsultaUserComponent } from './consulta-user/consulta-user.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InicarSesionComponent } from './inicar-sesion/inicar-sesion.component'
     UbicacionComponent,
     ConsultaEdificioComponent,
     HomeComponent,
-    InicarSesionComponent
+    InicarSesionComponent,
+    ConsultaUserComponent
   ],
   imports: [
     BrowserModule,

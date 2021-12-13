@@ -1,34 +1,59 @@
-<div class="menu">
-    <section id="centro">
+<br>
+
+<div class="container-md mh">
+    <!-- <div id="centro">
         <p>{{datos.respo}}</p>
         <button class="button" id="submit2" name="submit2" (click)="getConsulta()">Consulta</button>
-    </section>
-    <section id="contenido">
-        <h2>Registro Inmueble</h2>
-        <div class="campo"><p><i class="fas fa-house-user icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Nombre" id="Nombre" ></p></div>
-        <div class="campo"><p><i class="far fa-question-circle icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Tipo" id="Tipo"></p></div>
-        <div class="campo"><p><i class="fas fa-map-marked-alt icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Barrio" id="Barrio"></p></div>
-        <div class="campo"><p><i class="fas fa-money-check icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Transaccion" id="Transaccion"></p></div>
-        <div class="campo"><p><i class="fas fa-chart-area icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Area m2" id="Area" ></p></div>
-        <div class="campo"><p><i class="fas fa-toilet icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="# Baños" id="Banios" ></p></div>
-        <div class="campo"><p><i class="fas fa-bed icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="# Habitaciones" id="habitaciones"></p></div>
-        <div class="campo"><p><i class="fas fa-funnel-dollar icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Estrato" id="Estrato"></p></div>
-        <div class="campo"><p><i class="fas fa-money-bill-wave icon"></i>
-            <input type="text" class="form-control input-lg text-center" placeholder="Precio" id="Precio"></p></div>
-        <div class="campo"><p><i class="fas fa-money-bill-wave icon"></i>
-            <input type="file" class="form-control input-lg text-center" id="files" (change)="setFile($event)"></p></div>
+    </div> -->
+    <div class="card text-dark bg-light com">
+        <h2 class="card-title">Registro Inmueble</h2>
+
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-house-user icon"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre" id="Nombre" aria-describedby="basic-addon1">
+            <span class="input-group-text"><i class="far fa-question-circle icon"></i></span>
+            <input type="text" class="form-control" placeholder="Tipo" id="Tipo">
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marked-alt icon"></i></span>
             
-        <p><button class="button" id="submit" name="submit" (click)="registrarInmueble()">Registrar</button></p>
-        <!--<br> {{msj}}-->
-        
-        <p><button class="button" id="imgsub" name="imgsub" (click)="guardarImagen()">Guardar Imagen</button></p>
-    </section>
+            <select class="form-select" id="Barrio">
+                <option selected><i> Choose...</i></option>
+                <option *ngFor="let Barrio of barrios" value={{Barrio.barrio}}>{{Barrio.barrio}}</option>
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-money-check icon"></i></span>
+            <input type="text" class="form-control" placeholder="Transaccion" id="Transaccion">
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-chart-area icon"></i></span>
+            <input type="text" class="form-control input-lg" placeholder="Area m2" id="Area" >
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-toilet icon"></i></span>
+            <input type="text" class="form-control input-lg" placeholder="# Baños" id="Banios" >
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-bed icon"></i></span>
+            <input type="text" class="form-control input-lg" placeholder="# Habitaciones" id="habitaciones">
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-funnel-dollar icon"></i></span>
+            <input type="text" class="form-control input-lg" placeholder="Estrato" id="Estrato">
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-money-bill-wave icon"></i></span>
+            <input type="text" class="form-control input-lg" placeholder="Precio" id="Precio">
+        </div>
+        <div class="input-group mb-3 com">
+            <input type="file" class="form-control form-control-lg" id="files" (change)="setFile($event)">
+            <span class="input-group-text" id="basic-addon1">subir</span>
+        </div>
+
+        <button class="btn btn-primary" id="submit" name="submit" (click)="registrarInmueble()">Registrar</button>
+        <p></p>
+        <!-- <button class="button" id="imgsub" name="imgsub" (click)="guardarImagen()">Guardar Imagen</button> -->
+    </div>
 </div>

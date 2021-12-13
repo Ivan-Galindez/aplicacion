@@ -9,9 +9,7 @@ import { UserService} from '../user.service'
 export class UserComponent implements OnInit {
   
   respuestaRegistro:any;
-  aconsultar:any;
-  resConsulta:any;
-
+  
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
@@ -40,7 +38,7 @@ export class UserComponent implements OnInit {
     this.service.registrarUsu(usuario).subscribe( data => {
       this.respuestaRegistro=data;
     })
-    alert("registrando ubicacion");
+    alert("registrando Usuario");
     (document.getElementById("cedula") as HTMLInputElement).value="";
     (document.getElementById("nombre") as HTMLInputElement).value="";
     (document.getElementById("apellido") as HTMLInputElement).value="";
@@ -51,16 +49,6 @@ export class UserComponent implements OnInit {
 
   }
 
-  consultaUsu(){
-    let tip = (document.getElementById("consul") as HTMLInputElement).value;
-    let val = (document.getElementById("consulta") as HTMLInputElement).value;
-
-    this.aconsultar=tip+": "+val;
-
-    this.service.getConsulta(tip, val).subscribe( data => {
-      this.resConsulta=data;
-    })
-
-  }
+  
 
 }

@@ -1,5 +1,5 @@
 td {
-    border: 3px solid #1883db;
+    border: 3px solid #2f3338;
     width: 100px;
 }
 .men-conte{
@@ -7,4 +7,17 @@ td {
     align-items:center;
     margin-top: 50px;
     display:flex;
+}
+.com{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.mh{
+    max-width: 730px;
+}
+.bcom{
+    padding: 10px;
+    min-width:250px;
 }

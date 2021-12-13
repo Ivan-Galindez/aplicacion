@@ -1,1 +1,16 @@
 <p>inicar-sesion works!</p>
+<div class="container-md mh" *ngIf="isLogin=='false'">
+    <div class="card text-dark bg-light com">
+        <h2 class="card-title">Login de usuarios</h2>
+        
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user icon"></i></span>
+            <input type="text" class="form-control input-lg text-center" placeholder="Usuario" id="usuario"><br/>
+        </div>
+        <div class="input-group mb-3 com">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-key icon"></i></span>
+            <input type="password" class="form-control input-lg text-center" placeholder="Contraseña" id="contrasena">
+        </div>
+        <button class="btn btn-primary" (click)="login()"> Login</button>
+    </div>
+</div>

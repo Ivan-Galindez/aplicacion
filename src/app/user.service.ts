@@ -15,5 +15,9 @@ export class UserService {
 
   getConsulta(tip:any, val:any){
     return this.http.get("http://localhost:900/consulta"+tip+"?val="+val)
-  }
+  };
+
+  login(usuario: string, val: string) {
+    return this.http.post("http://localhost:900/login", {user:usuario, clave:val})
+  };
 }

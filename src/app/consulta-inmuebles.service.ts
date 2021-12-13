@@ -31,6 +31,11 @@ export class ConsultaInmueblesService {
     return this.http.post("http://localhost:900/guardarImagen", formData, {headers:headers})
   }
 
+  getConsultaBarrio(){
+    //console.log("wasaaaa")
+    return this.http.get("http://localhost:900/consultaBarrio")
+  }
+
 /*
   getInmueble(){
     //funcion con la que se va a conectar con el api

@@ -10,11 +10,16 @@ export class InmobiliariaComponent implements OnInit {
 
   datos:any;
   archivos:any;
+  barrios:any
 
   constructor(private service: ConsultaInmueblesService) { }
 
   ngOnInit(): void {
     //alert("madres estamos en inmuebles");
+    this.service.getConsultaBarrio().subscribe( data=>{
+      this.barrios=data;
+      console.log(this.barrios)      
+    });
   }
 
   registrarInmueble(){

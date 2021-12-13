@@ -1,69 +1,42 @@
-    <div class="menu">
-        <section id="centro">
-            <h1>Consulta de usuarios</h1>
-            <div class="campo-c">
-                <select name="select" id="consul">
-                    <option value="nombre">Nombre</option>
-                    <option value="apellido">Apellido</option>
-                    <option value="cedula">Cedula</option>
-                </select>
-            <input type="text" id="consulta" placeholder="Consulte">
-            <button class="btn" id="submitCon" (click)="consultaUsu()">Consultar</button>
-        </div>
-            <h1>{{aconsultar}}</h1>
-            <!-- <div *ngFor="let res of resConsulta; let i = index">
-                <p>Cedula: {{res.cedula}}</p>
-                <p>Nombre: {{res.nombre}}</p>
-                <p>Apellido: {{res.apellido}}</p>
-                <p>Correo: {{res.correo}}</p>
-                <p>Celular: {{res.celular}}</p>
-                <p>User: {{res.user}}</p>
-                <p>Password: {{res.clave}}</p>
-            </div> -->
-            <table>
-                <tr>
-                    <td>#</td>
-                    <td>Cedula</td>
-                    <td>Nombre</td>
-                    <td>Apellido</td>
-                    <td>Correo</td>
-                    <td>Celular</td>
-                    <td>User</td>
-                    <td>Password</td>
-                </tr>
-                <tr *ngFor="let res of resConsulta; let i = index">
-                    <td>{{i+1}}</td>
-                    <td>{{res.cedula}}</td>
-                    <td>{{res.nombre}}</td>
-                    <td>{{res.apellido}}</td>
-                    <td>{{res.correo}}</td>
-                    <td>{{res.celular}}</td>
-                    <td>{{res.user}}</td>
-                    <td>{{res.clave}}</td>
-                </tr>
-            </table>
-
-        </section>
-        <section id="contenido">
-            <h2>Registro Usuarios</h2>
-            <div class="campo"><p><i class="fas fa-address-book icon"></i>
-                <input type="text" class="form-control input-lg text-center" placeholder="Cedula" id="cedula" ng-model="formData.cedula"></p></div>
-            <div class="campo"><p><i class="fas fa-user icon"></i>
-                <input type="text" class="form-control input-lg text-center" placeholder="Nombres" id="nombre" ng-model="formData.nombre"></p></div>
-            <div class="campo"><p><i class="fas fa-user icon"></i>
-                <input type="text" class="form-control input-lg text-center" placeholder="Apellidos" id="apellido" ng-model="formData.apellido"></p></div>
-            <div class="campo"><p><i class="fas fa-envelope icon"></i>
-                <input type="text" class="form-control input-lg text-center" placeholder="Correo Electronico" id="correo" ng-model="formData.correo"></p></div>
-            <div class="campo"><p><i class="fas fa-mobile-alt icon"></i>
-                <input type="text" class="form-control input-lg text-center" placeholder="Celular" id="celular" ng-model="formData.celular"></p></div>
-            <h3>Id Usuario</h3>
-            <div class="campo"><p><i class="fas fa-user icon"></i>
-                <input type="text" class="form-control input-lg text-center" placeholder="Usuario" id="user" ng-model="formData.user"></p></div>
-            <div class="campo"><p><i class="fas fa-key icon"></i>
-                <input type="password" class="form-control input-lg text-center" placeholder="Contraseña" id="clave" ng-model="formData.clave"></p></div>
+    <br>
+    <div class="container-md mh">
+        
+        <div class="card text-dark bg-light com">
+            <h2 class="card-title">Registro Usuarios</h2>
+    
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-book icon"></i></span>
+                <input type="text" class="form-control input-lg text-center" placeholder="Cedula" id="cedula" ng-model="formData.cedula">
+            </div>
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user icon"></i></span>
+                <input type="text" class="form-control input-lg text-center" placeholder="Nombres" id="nombre" ng-model="formData.nombre">
+            </div>
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user icon"></i></span>
+                <input type="text" class="form-control input-lg text-center" placeholder="Apellidos" id="apellido" ng-model="formData.apellido">
+            </div>
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope icon"></i></span>
+                <input type="text" class="form-control input-lg text-center" placeholder="Correo Electronico" id="correo" ng-model="formData.correo">
+            </div>
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt icon"></i></span>
+                <input type="text" class="form-control input-lg text-center" placeholder="Celular" id="celular" ng-model="formData.celular">
+            </div>
             
-            <p><button class="button" id="submit" name="submit" (click)="registrarUsu()">Registrarse</button></p>
-            <!--<br> {{msj}}-->
-            <!-- <p>{{respuestaRegistro.respo}}</p> -->
-        </section> 
+            <h4 class="card-subtitle mb-2 text-muted">Id Usuario</h4>
+
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user icon"></i></span>
+                <input type="text" class="form-control input-lg text-center" placeholder="Usuario" id="user" ng-model="formData.user">
+            </div>
+            <div class="input-group mb-3 com">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-key icon"></i></span>
+                <input type="password" class="form-control input-lg text-center" placeholder="Contraseña" id="clave" ng-model="formData.clave">
+            </div>
+            
+            <button class="btn btn-primary" id="submit" name="submit" (click)="registrarUsu()">Registrar</button>
+            <p></p>
+        </div> 
     </div>

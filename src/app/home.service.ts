@@ -13,4 +13,13 @@ export class HomeService {
     //console.log("wasaaaa")
     return this.http.get("http://localhost:900/consulta")
   }
+
+  getConsulInmu(inmueble:any){
+    return this.http.get("http://localhost:900/consultaInmu?tipo="+ inmueble.tipo + "&transaccion=" + inmueble.transaccion+"&habitaciones="+inmueble.habitaciones+"&barrio="+inmueble.barrio)
+  }
+
+  getConsultaBarrio(){
+    //console.log("wasaaaa")
+    return this.http.get("http://localhost:900/consultaBarrio")
+  }
 }

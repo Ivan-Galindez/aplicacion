@@ -11,18 +11,21 @@
 <div class="container-fluid cabeza">
   <br>
   <div class="der">
-    <img src="data:loguito.jpeg" alt="imagen ">
+    <img 
+    height="150px"
+    width="310px"
+    src="http://localhost:900/inicio2.png" alt="imagen ">
   
     
   </div>
   <div class="izq">
-    <h5>Proyecto inmobiliaria misión TIC 2022</h5>
+    <h5>Proyecto inmobiliaria</h5>
     <h6 class="camb">Iván Galíndez</h6>
     <h6 class="camb">Manuela Granda</h6>
   </div>
 </div>
 
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top border-5 border-bottom border-success">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top border-5 border-bottom border-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><h2><i class="fas fa-hotel"></i>{{title}}</h2></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuNav" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,13 +40,13 @@
             Consultar
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="/user">Usuarios</a>
+            <a class="dropdown-item" href="/consulUsu">Usuarios</a>
             <a class="dropdown-item" href="/consulEd">Inmuebles</a>
             <a class="dropdown-item" href="/ubi">Ubicaciones</a>
           </div>
         </li></h5>
     
-        <h5><li class="nav-item dropdown">
+        <h5><li class="nav-item dropdown" *ngIf="isLogin=='true'">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Insertar
           </a>
@@ -56,8 +59,13 @@
       </ul>
       <ul class="navbar-nav ms-4"> 
         <h5><li class="nav-item">
-        <a class="nav-link text-nowrap" href="#">Iniciar sesión</a>
+        <a class="nav-link text-nowrap" href="/sign-in">Iniciar sesión</a>
         </li></h5>
+        <li class="nav-item">
+          <a (click)="logout()" *ngIf="isLogin=='true'">
+            <img class="logout">
+        </a>
+        </li>
       </ul>
     </div>
   </nav>

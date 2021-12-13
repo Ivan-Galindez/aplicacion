@@ -1,0 +1,42 @@
+<br>
+<div class="container-md mh">
+    <div class="card text-dark bg-light com">
+        <h2 class="card-title">Consulta de usuarios</h2>
+
+            <div class="input-group mb-3 com">
+                
+                <select class="form-select" id="consul">
+                    <option selected>Choose...</option>
+                    <option value="Nombre">Nombre</option>
+                    <option value="Apellido">Apellido</option>
+                    <option value="Cedula">Cedula</option>
+                </select>
+            <input type="text" id="consulta" placeholder="Consulte">
+            <button class="btn btn-primary" id="submitCon" (click)="consultaUsu()">Consultar</button>
+        </div>
+
+        <h1 class="card-subtitle mb-2 text-muted text-center">{{aconsultar}}</h1>
+        <table>
+            <tr>
+                <td>#</td>
+                <td>Cedula</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Correo</td>
+                <td>Celular</td>
+                <td>User</td>
+                <td>Password</td>
+            </tr>
+            <tr *ngFor="let res of resConsulta; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{res.cedula}}</td>
+                <td>{{res.nombre}}</td>
+                <td>{{res.apellido}}</td>
+                <td>{{res.correo}}</td>
+                <td>{{res.celular}}</td>
+                <td>{{res.user}}</td>
+                <td>{{res.clave}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
